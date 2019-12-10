@@ -15,8 +15,12 @@ class ApiRestController extends AbstractController
      */
     public function getAllPonts()
     {
+        $response = new JsonResponse();
         $em = $this->getDoctrine()->getManager();
         $ponts = $em->getRepository(Patrimoine::class)->findAll();
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->setEncodingOptions(JSON_UNESCAPED_UNICODE);
         $tabPonts = [];
         foreach ($ponts as $pont) {
             $tabPonts[] = [
@@ -27,7 +31,7 @@ class ApiRestController extends AbstractController
                 "elem_princ" => $pont->getElemPrinc(),
             ];
         };
-        $response = new Response(json_encode($tabPonts, true, 512));
+        $response->setData($tabPonts);
 
         return $response;
     }
@@ -44,6 +48,7 @@ class ApiRestController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $ponts = $em->getRepository(Patrimoine::class)->find($id);
         $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
         $response->setEncodingOptions(JSON_UNESCAPED_UNICODE);
         $response->setData([
             "id" => $ponts->getId(),
