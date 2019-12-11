@@ -5,62 +5,59 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<style>
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 20px;
-    }
-
-    @media (max-width: 1250px) {
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 20px;
-        }
-    }
-
-    .filter {
-        display: block;
-        position: sticky;
-        top: 20px;
-    }
-</style>
 <nav class="navbar navbar-dark bg-dark">
     <a href="#" class="navbar-brand mb-0">OFILDELO</a>
     <a href="#" class="navbar-brand mb-0">Mes Favoris</a>
 </nav>
 <div class="container">
-
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-9">
-                <div class="grid" id="ponts">
-                    <div class="card card-accent-dark">
-                        <div class="card-body">
-                            <h5 class="card-title" id="elem_patri" style="font-weight:bold;"></h5>
-                            <div class="card-title">
-                                <span id="commune"></span> <span id="identifian"></span>
-                            </div>
-                            <p class="text text-muted" id="elem_princ"></p>
-                        </div>
-                        <div class="card-footer">
-                            <h5 class="text-right"><a href="#" class="far fa-heart f-left"></a></h5>
-                        </div>
-                    </div>
+                <div class="listePonts grid">
+
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="filter">
                     <h2 class="h2">Affiner critères</h2>
-                    <div class="card">
-                        <p>mettre un formulaire de critere : <br>
-                            - searchbar <br>
-                            - par numero ASC/DESC <br>
-                            - par ordre ASC/DESC <br>
-                        </p>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="ponts">
+                        <label class="custom-control-label" for="ponts">Ponts</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="viaducs">
+                        <label class="custom-control-label" for="viaducs">Viaducs</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="passerelles">
+                        <label class="custom-control-label" for="passerelles">Passerelles</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="autres">
+                        <label class="custom-control-label" for="autres">Autres</label>
+                    </div>
+
+                    <div class="mt-4">
+                        <label>
+                            <select class="browser-default custom-select">
+                                <option selected>Filtrer par départements</option>
+                                <option value="75">75</option>
+                                <option value="77">77</option>
+                                <option value="78">78</option>
+                                <option value="91">91</option>
+                                <option value="92">92</option>
+                                <option value="93">93</option>
+                                <option value="94">94</option>
+                                <option value="95">95</option>
+                            </select>
+                        </label>
                     </div>
                 </div>
             </div>

@@ -1,26 +1,26 @@
 $.getJSON("http://127.0.0.1:8000/api/ponts", function (datas) {
     let lesPonts = JSON.parse(JSON.stringify(datas));
-    /*    for (let i = 0; i < lesPonts.length ; i++) {
-            $("#elem_patri").html(lesPonts[i].elem_patri);
-            $("#elem_princ").html(lesPonts[i].elem_princ);
-            $("#commune").html(lesPonts[i].commune);
-            $("#identifian").html(lesPonts[i].identifiant.substring(0,2));
-        }*/
     lesPonts.forEach(unPont => {
-        $("#elem_patri").html(unPont.elem_patri);
-        $("#elem_princ").html(unPont.elem_princ);
-        $("#commune").html(unPont.commune);
-        $("#identifian").html("(" + unPont.identifiant.substring(0, 2) + ")");
+        $('.listePonts').append(`
+                <div class="card card-accent-dark">
+                    <div class="card-body">
+                        <h5 class="card-title elem_patri font-weight-bold">${unPont.elem_patri}</h5>
+                        <div class="card-title">
+                            <span class="commune">${unPont.commune}</span> <span class="identifiant">(${unPont.identifiant.substring(0, 2)})</span>
+                        </div>
+                    <p class="text text-muted elem_princ">${unPont.elem_princ}</p>
+                    </div>
+                    <div class="card-footer">
+                       <a href="#" class="text-right far fa-heart float-right text-decoration-none" onclick="addFavoris(${unPont.identifiant})"></a>
+                    </div>
+                </div>
+        `);
     });
-
 });
 
-//Plus tard!
-/*$.ajax({
-    url: './test.php',
-    type: 'POST',
-    data: {data: objJSon},
-    success: function () {
-        alert('the data was successfully sent to the server');
-    }
-});*/
+//stocker les favoris localement comme dans le TP avec storage.js
+function addFavoris(id) {
+    let mesFavoris = [];
+    mesFavoris = id;
+    console.log(mesFavoris);
+}
