@@ -64,6 +64,7 @@ class __TwigTemplate_c74ac507ee4ffa9ea3486f99c391f4d9e8393122dfecbb13ddb4f3b92a0
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 20px;
         }
+
         @media (max-width: 1250px) {
             .grid {
                 display: grid;
@@ -71,6 +72,7 @@ class __TwigTemplate_c74ac507ee4ffa9ea3486f99c391f4d9e8393122dfecbb13ddb4f3b92a0
                 grid-gap: 20px;
             }
         }
+
         .filter {
             display: block;
             position: sticky;
@@ -81,20 +83,20 @@ class __TwigTemplate_c74ac507ee4ffa9ea3486f99c391f4d9e8393122dfecbb13ddb4f3b92a0
 <body>
 <nav class=\"navbar navbar-dark bg-dark\">
     <a href=\"";
-        // line 31
+        // line 33
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\" class=\"navbar-brand mb-0\">OFILDELO</a>
     <a href=\"";
-        // line 32
+        // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\" class=\"navbar-brand mb-0\">Mes Favoris</a>
 </nav>
 ";
-        // line 34
-        $this->displayBlock('body', $context, $blocks);
-        // line 35
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 36
+        $this->displayBlock('body', $context, $blocks);
+        // line 37
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 38
         echo "</body>
 </html>
 ";
@@ -143,7 +145,7 @@ class __TwigTemplate_c74ac507ee4ffa9ea3486f99c391f4d9e8393122dfecbb13ddb4f3b92a0
 
     }
 
-    // line 34
+    // line 36
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -161,7 +163,7 @@ class __TwigTemplate_c74ac507ee4ffa9ea3486f99c391f4d9e8393122dfecbb13ddb4f3b92a0
 
     }
 
-    // line 35
+    // line 37
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -191,7 +193,7 @@ class __TwigTemplate_c74ac507ee4ffa9ea3486f99c391f4d9e8393122dfecbb13ddb4f3b92a0
 
     public function getDebugInfo()
     {
-        return array (  165 => 35,  147 => 34,  129 => 8,  110 => 5,  98 => 36,  96 => 35,  94 => 34,  89 => 32,  85 => 31,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
+        return array (  167 => 37,  149 => 36,  131 => 8,  112 => 5,  100 => 38,  98 => 37,  96 => 36,  91 => 34,  87 => 33,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -210,6 +212,7 @@ class __TwigTemplate_c74ac507ee4ffa9ea3486f99c391f4d9e8393122dfecbb13ddb4f3b92a0
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 20px;
         }
+
         @media (max-width: 1250px) {
             .grid {
                 display: grid;
@@ -217,6 +220,7 @@ class __TwigTemplate_c74ac507ee4ffa9ea3486f99c391f4d9e8393122dfecbb13ddb4f3b92a0
                 grid-gap: 20px;
             }
         }
+
         .filter {
             display: block;
             position: sticky;

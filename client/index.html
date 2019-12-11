@@ -5,45 +5,73 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="app.js"></script>
 </head>
 <body>
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    @media (max-width: 1250px) {
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+    }
+
+    .filter {
+        display: block;
+        position: sticky;
+        top: 20px;
+    }
+</style>
+<nav class="navbar navbar-dark bg-dark">
+    <a href="#" class="navbar-brand mb-0">OFILDELO</a>
+    <a href="#" class="navbar-brand mb-0">Mes Favoris</a>
+</nav>
 <div class="container">
-    <h1>OFILDELO</h1>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="grid" id="ponts">
+                    <div class="card card-accent-dark">
+                        <div class="card-body">
+                            <h5 class="card-title" id="elem_patri" style="font-weight:bold;"></h5>
+                            <div class="card-title">
+                                <span id="commune"></span> <span id="identifian"></span>
+                            </div>
+                            <p class="text text-muted" id="elem_princ"></p>
+                        </div>
+                        <div class="card-footer">
+                            <h5 class="text-right"><a href="#" class="far fa-heart f-left"></a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="filter">
+                    <h2 class="h2">Affiner critères</h2>
+                    <div class="card">
+                        <p>mettre un formulaire de critere : <br>
+                            - searchbar <br>
+                            - par numero ASC/DESC <br>
+                            - par ordre ASC/DESC <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<button id="ajaxButton" type="button">GET DATA</button>
 
-<script>
-    (function () {
-        let httpRequest;
-        document.getElementById("ajaxButton").addEventListener('click', makeRequest);
-
-        function makeRequest() {
-            httpRequest = new XMLHttpRequest();
-
-            if (!httpRequest) {
-                console.error('Giving up :( Cannot create an XMLHTTP instance');
-                return false;
-            }
-            httpRequest.onreadystatechange = logContents;
-            httpRequest.open('GET', 'http://127.0.0.1:8000/api/ponts');
-            httpRequest.send();
-        }
-
-        function logContents() {
-            if (httpRequest.readyState === XMLHttpRequest.DONE) {
-                if (httpRequest.status === 200) {
-                    console.log('success', httpRequest.responseText);
-                } else {
-                    console.error('There was a problem with the request.', httpRequest);
-                }
-            }
-        }
-    })();
-</script>
-
+<script src="js/jquery.js"></script>
+<script src="js/js.storage.js"></script>
+<script src="js/app.js"></script>
 </body>
 
 </html>
