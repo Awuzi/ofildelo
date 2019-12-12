@@ -1,5 +1,6 @@
 $.getJSON("http://127.0.0.1:8000/api/ponts", function (datas) {
     let lesPonts = JSON.parse(JSON.stringify(datas));
+    lesPonts.sort((a,b) => (a.commune > b.commune) ? 1 : ((b.commune > a.commune) ? -1 : 0));
     lesPonts.forEach(unPont => {
         $('.listePonts').append(`
                 <div class="card card-accent-dark">
