@@ -26,6 +26,8 @@ function filterById() { //recupere l'attribut value de la checkbox qui à été 
     $('input:checkbox').click(function () {
         if ($(this).prop("checked")) {
             console.log($(this).attr('id'));
+        } else {
+            console.log("décoché");
         }
     });
 }
