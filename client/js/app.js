@@ -3,7 +3,7 @@ $.getJSON("http://127.0.0.1:8000/api/ponts", function (datas) {
     lesPonts.sort((a, b) => (a.commune > b.commune) ? 1 : ((b.commune > a.commune) ? -1 : 0)); //ranger les ponts par ordre alphabetique commune
     lesPonts.forEach(unPont => {
         const typePont = unPont.elem_patri.split(' ')[0];
-        if ((typePont === 'Pont')) { //affiche juste les ponts, reste à automatiser pour recuperer la value de la checkbox
+        //if ((typePont === 'Pont')) { //affiche juste les ponts, reste à automatiser pour recuperer la value de la checkbox
             $('.listePonts').append(`
             <div class="card card-accent-dark">
                 <div class="card-body">
@@ -18,16 +18,16 @@ $.getJSON("http://127.0.0.1:8000/api/ponts", function (datas) {
                 </div>
             </div>
         `);
-        }
+        //}
     });
 });
 
 function filterById() { //recupere l'attribut value de la checkbox qui à été cliquée
     $('input:checkbox').click(function () {
         if ($(this).prop("checked")) {
-            console.log($(this).attr('id'));
+            $(".commune:not(:contains(" + $(this).attr('value') + "))").parent().parent().parent().hide();
         } else {
-            console.log("décoché");
+            $(".commune:not(:contains(" + $(this).attr('value') + "))").parent().parent().parent().show();
         }
     });
 }
