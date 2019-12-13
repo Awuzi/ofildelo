@@ -18,13 +18,14 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="">
-                    <table class="table table-striped" id="tabela1">
+                    <table class="table" id="tabela1">
                         <thead>
                         <tr>
                             <th>Ville</th>
                             <th>Nom</th>
-                            <th>Départements</th>
+                            <th>Département</th>
                             <th>Description</th>
+                            <th hidden>Type</th>
                         </tr>
                         </thead>
                         <tbody class="listePonts">
@@ -38,22 +39,28 @@
                     <h2 class="h2">Affiner critères</h2>
                     <hr>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input typePonts" id="Pont" value="Pont">
+                        <input type="checkbox" class="custom-control-input typePonts" id="Pont" value="pont">
                         <label class="custom-control-label" for="Pont">Ponts</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input typePonts" id="Viaduc" value="Viaduc">
+                        <input type="checkbox" class="custom-control-input typePonts" id="Viaduc" value="viaduc">
                         <label class="custom-control-label" for="Viaduc">Viaducs</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input typePonts" id="Passerelle" value="Passerelle">
+                        <input type="checkbox" class="custom-control-input typePonts" id="Passerelle" value="passerelle">
                         <label class="custom-control-label" for="Passerelle">Passerelles</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input typePonts" id="autres" value="Autre">
+                        <input type="checkbox" class="custom-control-input typePonts" id="Front" value="front">
+                        <label class="custom-control-label" for="Front">Fronts</label>
+
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input typePonts" id="autres" value="autre">
                         <label class="custom-control-label" for="autres">Autres</label>
                     </div>
 
