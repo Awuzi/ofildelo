@@ -16,6 +16,12 @@ Le projet Au fil de l'eau à pour but de présenter le patrimoine touristique de
 
 ### **Mise en place, utilisation**
 
+Le client n'a qu'a se connecter via l'interface designé à cet effet en json. Le patrimoine est affiché dans un tableau descriptif comprenant son nom sa ville son département et sa description.
+![](readmeimg/affichage.png "Affichage du patrimoine")
+
+Le client peut ensuite afficher une liste réduite comprenant les critères qu'il a choisit dans la liste suivante. Le client peut en plus ajouter à ses critères le département dans lequel il souhaite rechercher un endroit spécifique.
+![](readmeimg/filtres.png "Filtres Multi-critères")
+
 
 
 ### **LICENCE**
