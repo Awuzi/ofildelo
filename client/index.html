@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<style>
+    .listePonts tr {
+        cursor: pointer !important;
+    }
+
+    .listePonts tr:hover:after,
+    .listePonts tr.fav:after {
+        content: ' \2605' !important;
+        color: rgb(255, 203, 0) !important;
+    }
+
+    .listePonts tr.fav:hover:after {
+        content: ' \2606' !important;
+    }
+</style>
 <nav class="navbar navbar-dark bg-dark">
     <a href="#" class="navbar-brand mb-0">OFILDELO</a>
     <a href="#" class="navbar-brand mb-0">Mes Favoris</a>
@@ -109,7 +124,10 @@
                             </div>
                         </div>
                     </div>
-
+                    <hr>
+                    <h5>Mes Favoris</h5>
+                    <ul class="favList">
+                    </ul>
 
                 </div>
             </div>

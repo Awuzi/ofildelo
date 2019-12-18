@@ -22,9 +22,9 @@ $.getJSON("http://127.0.0.1:8000/api/ponts", function (datas) {
         };
         $('.listePonts').append(`
             <tr>
-                <td class="commune">${unPont.commune}</td>
+                <td class="commune" id="${unPont.identifiant}">${unPont.commune}</td>
                 <td>${unPont.elem_patri}</td>
-                <td class="departement" style="text-align: center">${getDepartement(unPont.identifiant.substring(0, 2))}</td>
+                <td class="departement" style="text-align: center">${getDepartement(unPont.identifiant.substring(0, 2))} <br> <span class="text-muted font-italic" style="font-size: 10px">(${unPont.identifiant})</span></td>
                 <td>${unPont.elem_princ}</td>
                 <td class="typePont" hidden> ${pontViaducOuPasserelle(unPont.elem_patri.split(' ')[0].toLowerCase())}</td>
             </tr>
@@ -46,7 +46,7 @@ $(document).ready(function () {
 });
 
 //filtre departements
-$(document).ready(function () {
+/*$(document).ready(function () {
     $("input:checkbox").on("change", function () {
         const a = $("input:checkbox:checked").val();
         console.log(a);
@@ -56,11 +56,23 @@ $(document).ready(function () {
             $(".departement").parent().show();
         }
     });
-});
+});*/
 
-//stocker les favoris localement comme dans le TP avec storage.js
-function addFavoris(id) {
-    let mesFavoris = [];
-    mesFavoris = id;
-    console.log(mesFavoris);
-}
+const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+favorites.forEach(function (favorite) {
+    document.getElementById(favorite).addClassName = "fav";
+});
+document.querySelector('.listePonts').addEventListener('click', function (e) {
+    const id = e.target.id,
+        index = favorites.indexOf(id);
+    if (!id) return;
+    if (index === -1) {
+        favorites.push(id);
+        $('.favList').append(`
+                <li> ${id} </li>
+        `);
+    } else {
+        favorites.splice(index, 1);
+    }
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+});
