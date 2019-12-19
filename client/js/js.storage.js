@@ -243,7 +243,7 @@
                 var v = _get.apply(this, arguments);
                 // Convert result to an object (if last argument is an array, _get return already an object) and test each item
                 if (!Array.isArray(a[l - 1])) {
-                    v = { 'totest': v };
+                    v = {'totest': v};
                 }
                 for (i in v) {
                     if (v.hasOwnProperty(i) && !(
@@ -281,7 +281,7 @@
                 var v = _get.apply(this, arguments);
                 // Convert result to an object (if last argument is an array, _get return already an object) and test each item
                 if (!Array.isArray(a[l - 1])) {
-                    v = { 'totest': v };
+                    v = {'totest': v};
                 }
                 for (i in v) {
                     if (v.hasOwnProperty(i) && !(v[i] !== undefined && v[i] !== null)) {
@@ -344,14 +344,14 @@
             }
         }
         var ns = {
-            localStorage: _extend({}, apis.localStorage, { _ns: name }),
-            sessionStorage: _extend({}, apis.sessionStorage, { _ns: name })
+            localStorage: _extend({}, apis.localStorage, {_ns: name}),
+            sessionStorage: _extend({}, apis.sessionStorage, {_ns: name})
         };
         if (cookies_available) {
             if (!window.cookieStorage.getItem(name)) {
                 window.cookieStorage.setItem(name, '{}');
             }
-            ns.cookieStorage = _extend({}, apis.cookieStorage, { _ns: name });
+            ns.cookieStorage = _extend({}, apis.cookieStorage, {_ns: name});
         }
         apis.namespaceStorages[name] = ns;
         return ns;
@@ -537,13 +537,13 @@
             _domain: null,
             _secure: false,
             setItem: function (n, v) {
-                Cookies.set(this._prefix + n, v, { expires: this._expires, path: this._path, domain: this._domain, secure: this._secure });
+                Cookies.set(this._prefix + n, v, {expires: this._expires, path: this._path, domain: this._domain, secure: this._secure});
             },
             getItem: function (n) {
                 return Cookies.get(this._prefix + n);
             },
             removeItem: function (n) {
-                return Cookies.remove(this._prefix + n, { path: this._path });
+                return Cookies.remove(this._prefix + n, {path: this._path});
             },
             clear: function () {
                 var cookies = Cookies.get();
@@ -639,14 +639,14 @@
     };
     if (storage_available) {
         // localStorage API
-        apis.localStorage = _extend({}, storage, { _type: 'localStorage' });
+        apis.localStorage = _extend({}, storage, {_type: 'localStorage'});
         // sessionStorage API
-        apis.sessionStorage = _extend({}, storage, { _type: 'sessionStorage' });
+        apis.sessionStorage = _extend({}, storage, {_type: 'sessionStorage'});
     } else {
         // localStorage API
-        apis.localStorage = _extend({}, storage, { _type: 'localCookieStorage' });
+        apis.localStorage = _extend({}, storage, {_type: 'localCookieStorage'});
         // sessionStorage API
-        apis.sessionStorage = _extend({}, storage, { _type: 'sessionCookieStorage' });
+        apis.sessionStorage = _extend({}, storage, {_type: 'sessionCookieStorage'});
     }
     // List of all namespace storage
     apis.namespaceStorages = {};

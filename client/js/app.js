@@ -5,17 +5,6 @@ $.getJSON("http://127.0.0.1:8000/api/ponts", function (datas) {
     lesPonts.forEach(unPont => {
         let pontViaducOuPasserelle = (typePont) => {
             return typePont === 'pont' ? 'pont' : typePont === 'passerelle' ? 'passerelle' : typePont === 'viaduc' ? 'viaduc' : typePont === 'front' ? 'front' : 'autre';
-            /*
-            if (typePont === 'pont') {
-                typePont = 'pont';
-            } else if (typePont === 'passerelle') {
-                typePont = 'passerelle';
-            } else if (typePont === 'viaduc') {
-                typePont = 'viaduc';
-            } else {
-                typePont = 'autres';
-            }
-            */
         };
         let getDepartement = (dep) => {
             return dep === '75' ? '75' : dep === '77' ? '77' : dep === '78' ? '78' : dep === '91' ? '91' : dep === '92' ? '92' : dep === '93' ? '93' : dep === '94' ? '94' : dep === '95' ? '95' : null;
@@ -46,7 +35,7 @@ $(document).ready(function () {
 });
 
 //filtre departements
-/*$(document).ready(function () {
+$(document).ready(function () {
     $("input:checkbox").on("change", function () {
         const a = $("input:checkbox:checked").val();
         console.log(a);
@@ -56,7 +45,7 @@ $(document).ready(function () {
             $(".departement").parent().show();
         }
     });
-});*/
+});
 
 const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 favorites.forEach(function (favorite) {
@@ -68,9 +57,7 @@ document.querySelector('.listePonts').addEventListener('click', function (e) {
     if (!id) return;
     if (index === -1) {
         favorites.push(id);
-        $('.favList').append(`
-                <li> ${id} </li>
-        `);
+        $('.favList').append(`<li> ${id} </li>`);
     } else {
         favorites.splice(index, 1);
     }
