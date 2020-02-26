@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container col-md-6 mt-4">
+        <h1>{{ datas.elem_patri }} - {{ datas.commune }}</h1>
+        <hr>
+        <p class="text-muted"> N° {{ datas.identifiant }} </p>
+
+        <p>
+            <span class="font-weight-bold"> Description : </span>{{ datas.elem_princ }}
+        </p>
+    </div>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

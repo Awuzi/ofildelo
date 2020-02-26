@@ -1,0 +1,10 @@
+api/vendor/*
+api/var/
+api/.idea
+api/translations
+api/.env
+api/.env.test
+api/package-lock.json
+api/phpunit.xml.dist
+client/.idea
+compte-rendu
